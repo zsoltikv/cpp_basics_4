@@ -192,7 +192,37 @@ int main()
     // --- 8. HOMEWORK: NUMBER GUESSING GAME (1-100) ---
     // -------------------------------------------------------------------------------
 
-    // HOMEWORK: generate a random integer between 1 and 100 and ask for guesses from the user until the user guesses correctly.
+    // generate a target random integer between 1 and 100.
+    int randomNumber = rand() % 100 + 1;
+    // declare and initialize the variable to store the user's guess.
+    int userGuess = 0;
+
+    // continue looping as long as the user's guess does not match the random number.
+    while (userGuess != randomNumber)
+    {
+        // prompt the user to enter a guess between 1 and 100.
+        cout << "Guess the number (between 1 and 100): ";
+        cin >> userGuess; // read the user input into userGuess
+
+        // check if the entered guess is smaller than the target number.
+        if (userGuess < randomNumber)
+        {
+            // print a hint if the guess is too low.
+            cout << "Too low! Try again." << endl;
+        }
+        // check if the entered guess is larger than the target number.
+        else if (userGuess > randomNumber)
+        {
+            // print a hint if the guess is too high.
+            cout << "Too high! Try again." << endl;
+        }
+        // if the guess is neither lower nor higher, it must be equal to the target number.
+        else
+        {
+            // print a success message along with the correct random number.
+            cout << "\nCongratulations! You guessed the correct number: " << randomNumber << endl;
+        }
+    }
 
     // return 0 to indicate that the program executed successfully.
     return 0;
